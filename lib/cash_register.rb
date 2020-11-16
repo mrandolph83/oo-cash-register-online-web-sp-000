@@ -3,10 +3,16 @@ class CashRegister
 
 attr_accessor :total, :discount, :items, :price, :transactions
 
+# We're going to create an Object Oriented Cash Register that can:
+# * Add items of varying quantities and prices
+# * Calculate discounts
+# * Keep track of what's been added to it
+# * Void the last transaction
 
 def initialize(discount = 0)
   @total = 0
   @discount = discount
+  # Takes into account a discount that might be applied later
   @price = []
   @items = []
   @transactions = []
@@ -22,6 +28,7 @@ end
       @items << item
       counter += 1
       @transactions << last_transaction
+# This leads into the void_last_transaction
     end
   else
     @items << item
@@ -33,7 +40,7 @@ end
     if @discount > 0
       @take_off = (price * discount)/100
       @total -= @take_off
-      return "After the discount, the total comes to $#{total}."
+      return "After the discount, the total comes to $#{@total}."
     else
       return "There is no discount to apply."
     end
@@ -44,8 +51,8 @@ end
     self.total -= self.transactions[-1]
     else
       return 0.0
+  # Returns 0.0 if there are no more transactions to take out
+  # of the transactions array [] above
     end
   end
-
-
 end
