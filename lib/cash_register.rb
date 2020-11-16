@@ -23,10 +23,10 @@ end
     @total += price * quantity
     last_transaction = price * quantity
     if quantity > 1
-    counter = 0
+    # counter = 0
     while counter < quantity
       @items << item
-      counter += 1
+      # counter += 1
       @transactions << last_transaction
 # This leads into the void_last_transaction
     end
