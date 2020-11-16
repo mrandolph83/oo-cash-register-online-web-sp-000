@@ -23,10 +23,11 @@ end
     @total += price * quantity
     last_transaction = price * quantity
     if quantity > 1
-    # counter = 0
+    counter = 0
+# Using the counter allows you to add items based on quantity.
     while counter < quantity
       @items << item
-      # counter += 1
+      counter += 1
       @transactions << last_transaction
 # This leads into the void_last_transaction
     end
@@ -49,6 +50,7 @@ end
   def void_last_transaction
     if @total != 0
     self.total -= self.transactions[-1]
+    # Takes off the last transaction made, set up above.
     else
       return 0.0
   # Returns 0.0 if there are no more transactions to take out
